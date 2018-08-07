@@ -283,14 +283,14 @@ A few general rules to note:
 
 Observe the following specific instances of these rules in our example:
 
-* `Aardvark` can import on any of `Bobcat`, `Cobra` or `Dingo`; it does import `Bobcat` and `Cobra`.
+* `Aardvark` can import any of `Bobcat`, `Cobra` or `Dingo`; it does import `Bobcat` and `Cobra`.
 * `Bobcat` can and does import both `Cobra` and `Dingo`, which both have project files with UUIDs and are declared as dependencies in `Bobcat`'s `[deps]` section.
 * `Bobcat` cannot possibly depend on `Aardvark` since `Aardvark` does not have a project file.
 * `Cobra` can and does import `Dingo`, which has a project file and UUID, and is declared as a dependency in `Cobra`'s  `[deps]` section.
 * `Cobra` cannot depend on `Aardvark` or `Bobcat` since neither have real UUIDs.
 * `Dingo` cannot import anything because it has a project file without a `[deps]` section.
 
-**The paths map** in a package directory is simple: it maps subdirectory names to their corresponding entry-point paths. In other words, if the path to our example project directory is `/home/me/animals` then the `paths` map would be materialized as this dictionary:
+**The paths map** in a package directory is simple: it maps subdirectory names to their corresponding entry-point paths. In other words, if the path to our example project directory is `/home/me/AnimalPackages` then the `paths` map would be materialized as this dictionary:
 
 ```julia
 paths = Dict{Tuple{UUID,Symbol},String}(
